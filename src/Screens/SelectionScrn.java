@@ -15,6 +15,8 @@ public class SelectionScrn extends JFrame implements ActionListener {
     JLabel numSumsText;
     public static Object choice;
     public static String NumSum;
+    public static boolean closed = false;
+
 
 
     public SelectionScrn(){
@@ -22,8 +24,6 @@ public class SelectionScrn extends JFrame implements ActionListener {
         this.setSize(500, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        //this.getContentPane().setBackground(Color.DARK_GRAY);
-        //this.setLayout(null);
 
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -98,15 +98,22 @@ public class SelectionScrn extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    public void run(){
+        while(closed == false){
+
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             choice = comboBox.getSelectedItem();
             NumSum = textField.getText();
+
             //System.out.println(choice);
             //System.out.println(NumSum);
 
-            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
 }

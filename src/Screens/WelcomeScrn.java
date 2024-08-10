@@ -12,6 +12,8 @@ public class WelcomeScrn extends JFrame implements ActionListener{
     JButton button;
     JTextField textField;
     public static String Name;
+    public static boolean closed = false;
+
     public WelcomeScrn(){
 
         this.setResizable(false);
@@ -74,13 +76,20 @@ public class WelcomeScrn extends JFrame implements ActionListener{
         this.setVisible(true);
 
     }
+     public void run(){
+        while(closed == false){
+            Name = textField.getText();
+        }
+     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== button){
-            Name = textField.getText();
-            System.out.println("Name is: " + Name);
-            SelectionScrn slct = new SelectionScrn();
+            closed = true;
+            //Name = textField.getText();
+            //System.out.println("Name is: " + Name);
+            System.out.println("Window closing");
+
 
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
