@@ -18,8 +18,6 @@ public class WelcomeScrn extends JFrame implements ActionListener{
         this.setSize(500, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        //this.getContentPane().setBackground(Color.DARK_GRAY);
-        //this.setLayout(null);
 
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -42,7 +40,7 @@ public class WelcomeScrn extends JFrame implements ActionListener{
 
 
         JLabel label = new JLabel();
-        label.setText("Whats Your Name");
+        label.setText("Whats Your Name?");
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setBounds(0, 10, 500, 50);
         label.setForeground(Color.WHITE);
@@ -81,6 +79,9 @@ public class WelcomeScrn extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== button){
             Name = textField.getText();
+            System.out.println("Name is: " + Name);
+            SelectionScrn slct = new SelectionScrn();
+
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
