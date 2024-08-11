@@ -53,10 +53,10 @@ public class SumScrn extends JFrame implements ActionListener {
         String question = "";
 
         switch ((String) SelectionScrn.choice){
-            case null:
-                question = "broken?";
-            default:
-                question = "test";
+//            case null:
+//                question = "broken?";
+//            default:
+//                question = "test";
             case "Addition":
                 question = num1 + " + " + num2;
                 awnser = num1+num2;
@@ -107,7 +107,8 @@ public class SumScrn extends JFrame implements ActionListener {
         this.setVisible(true);
     }
     public void run(){
-        while(closed == false){
+
+        while(!closed){
 //            int Uawnser = Integer.parseInt(textField.getText());
 //
 //            if(Uawnser == awnser){

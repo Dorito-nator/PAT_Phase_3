@@ -1,24 +1,22 @@
 package Screens;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+public class ResultsScrn extends JFrame implements ActionListener {
 
-public class SelectionScrn extends JFrame implements ActionListener {
+    JButton button;
 
-    private final JButton button;
-    private final JTextField textField;
-    private final JComboBox comboBox;
-    private final JLabel numSumsText;
-    public static Object choice;
-    public static String NumSum;
+
     public static boolean closed = false;
+    public static int correct ;
+    public static int incorrect ;
 
-
-
-    public SelectionScrn(){
+    public ResultsScrn(){
         this.setResizable(false);
         this.setSize(500, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,51 +40,23 @@ public class SelectionScrn extends JFrame implements ActionListener {
         panel4.setPreferredSize(new Dimension(100,10));
         panel5.setPreferredSize(new Dimension(100,100));
 
-
-
         JLabel label = new JLabel();
-        label.setText("What math operand would you like to use " + WelcomeScrn.Name + "?");
+        label.setText("Results \n Correct: " + correct + "\n Incorrect: " + incorrect);
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setBounds(0, 10, 500, 50);
         label.setForeground(Color.WHITE);
         label.setFont(new Font(null, Font.PLAIN,20));
 
-        numSumsText = new JLabel();
-        numSumsText.setText("And how many sums?");
-        numSumsText.setHorizontalAlignment(JLabel.CENTER);
-        numSumsText.setBounds(0, 80, 500, 50);
-        numSumsText.setForeground(Color.WHITE);
-        numSumsText.setFont(new Font(null, Font.PLAIN,20));
-
-        textField = new JTextField();
-        textField.setHorizontalAlignment(JTextField.CENTER);
-        textField.setPreferredSize(new Dimension(250,20));
-        textField.setBounds(150,120,200,20);
-        textField.setSelectedTextColor(Color.CYAN);
-
-        comboBox = new JComboBox<>();
-        comboBox.setBounds(150, 60, 200, 20);
-        comboBox.addItem("Addition");
-        comboBox.addItem("Subtraction");
-        comboBox.addItem("Multiplication");
-        comboBox.addItem("Division");
 
         button = new JButton();
-        button.setBounds(200, 150, 80,40);
-        button.setText("Submit");
+        button.setBounds(200, 140, 80,40);
+        button.setText("Done");
         button.setFocusable(false);
         button.addActionListener(this);
 
-        //Labels
-        this.add(label);
-        //NumSumText
-        this.add(numSumsText);
-        //ComboBox
-        this.add(comboBox);
+
         //button
         this.add(button);
-        //Text Fields
-        this.add(textField);
         //Panels
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.EAST);
@@ -95,22 +65,18 @@ public class SelectionScrn extends JFrame implements ActionListener {
         this.add(panel5, BorderLayout.CENTER);
         //frame visibility
         this.setVisible(true);
-    }
 
+    }
     public void run(){
         while(!closed){
 
-            NumSum = textField.getText();
         }
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
-            choice = comboBox.getSelectedItem();
             closed = true;
-            NumSum = textField.getText();
-            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
+
     }
 }
