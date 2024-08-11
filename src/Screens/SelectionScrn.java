@@ -108,6 +108,7 @@ public class SelectionScrn extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             choice = comboBox.getSelectedItem();
+            System.out.println(choice);
             closed = true;
             NumSum = textField.getText();
             //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));

@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class Main{
 
-    public static int correct = ResultsScrn.correct;
-    public static int incorrect = ResultsScrn.incorrect;
+    public static int correct = 0;
+    public static int incorrect = 0;
 
     public static void main(String[] args) {
         WelcomeRun();
@@ -20,13 +20,16 @@ public class Main{
 
         int nums = Integer.parseInt(SelectionScrn.NumSum);
         for (int i = 0; i < nums ; i++) {
-            SumRuns();
+            SumScrn sums = new SumScrn();
             System.out.println("sums");
             if (SumScrn.Correct){
                 correct++;
             }else{
                 incorrect++;
             }
+            SumScrn.closed = false;
+            sums.run();
+
         }
         ResultsRun();
 
@@ -40,12 +43,9 @@ public class Main{
          SelectionScrn select = new SelectionScrn();
          select.run();
      }
-     public static void SumRuns(){
-        SumScrn sums = new SumScrn();
-        sums.run();
-     }
+
      public static void ResultsRun(){
-         ResultsScrn result = new ResultsScrn();
+         ResultsScrn result = new ResultsScrn(correct, incorrect);
          result.run();
      }
 }

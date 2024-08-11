@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class ResultsScrn extends JFrame implements ActionListener {
 
@@ -13,10 +14,10 @@ public class ResultsScrn extends JFrame implements ActionListener {
 
 
     public static boolean closed = false;
-    public static int correct ;
-    public static int incorrect ;
+//    public static int correct ;
+//    public static int incorrect ;
 
-    public ResultsScrn(){
+    public ResultsScrn(int correct, int incorrect){
         this.setResizable(false);
         this.setSize(500, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,6 +56,8 @@ public class ResultsScrn extends JFrame implements ActionListener {
         button.addActionListener(this);
 
 
+        //label
+        this.add(label);
         //button
         this.add(button);
         //Panels
@@ -69,13 +72,14 @@ public class ResultsScrn extends JFrame implements ActionListener {
     }
     public void run(){
         while(!closed){
-
+            //Do Nothing, just wait
         }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             closed = true;
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
 
     }

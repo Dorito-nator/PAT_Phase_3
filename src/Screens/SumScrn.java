@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import java.util.Random;
 
 public class SumScrn extends JFrame implements ActionListener {
@@ -24,8 +25,6 @@ public class SumScrn extends JFrame implements ActionListener {
         this.setSize(500, 250);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
-        //this.getContentPane().setBackground(Color.DARK_GRAY);
-        //this.setLayout(null);
 
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -52,23 +51,18 @@ public class SumScrn extends JFrame implements ActionListener {
 
         String question = "";
 
-        switch ((String) SelectionScrn.choice){
-//            case null:
-//                question = "broken?";
-//            default:
-//                question = "test";
-            case "Addition":
-                question = num1 + " + " + num2;
-                awnser = num1+num2;
-            case "Subtraction":
-                question = num1 + " - " + num2;
-                awnser = num1 - num2;
-            case "Multiplication":
-                question = num1 + " x " + num2;
-                awnser = num1 * num2;
-            case "Division":
-                question = num1 + " ÷ " + num2;
-                awnser = num1 / num2;
+        if(SelectionScrn.choice == "Addition"){
+            question = num1 + " + " + num2;
+            awnser = num1 + num2;
+        }if(SelectionScrn.choice == "Subtraction") {
+            question = num1 + " - " + num2;
+            awnser = num1 - num2;
+        }if(SelectionScrn.choice == "Multiplicaiton"){
+            question = num1 + " x " + num2;
+            awnser = num1 * num2;
+        }if(SelectionScrn.choice == "Division"){
+            question = num1 + " ÷ " + num2;
+            awnser = num1 / num2;
         }
 
         JLabel label = new JLabel();
@@ -108,20 +102,22 @@ public class SumScrn extends JFrame implements ActionListener {
     }
     public void run(){
 
-        while(!closed){
-//            int Uawnser = Integer.parseInt(textField.getText());
-//
-//            if(Uawnser == awnser){
-//                Correct = true;
-//            }else {
-//                Correct = false;
-//            }
+        while(closed == false){
+            String Uawnser = textField.getText();
+            String RAwnser = Integer.toString(awnser);
+
+            if(Objects.equals(Uawnser, RAwnser)){
+                Correct = true;
+            }else {
+                Correct = false;
+            }
         }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             closed = true;
+
 
         }
 
