@@ -57,7 +57,7 @@ public class SumScrn extends JFrame implements ActionListener {
         }if(SelectionScrn.choice == "Subtraction") {
             question = num1 + " - " + num2;
             awnser = num1 - num2;
-        }if(SelectionScrn.choice == "Multiplicaiton"){
+        }if(SelectionScrn.choice == "Multiplication"){
             question = num1 + " x " + num2;
             awnser = num1 * num2;
         }if(SelectionScrn.choice == "Division"){
