@@ -77,7 +77,7 @@ public class WelcomeScrn extends JFrame implements ActionListener{
 
     }
      public void run(){
-        while(closed == false){
+        while(!closed){
             Name = textField.getText();
         }
      }
@@ -86,12 +86,7 @@ public class WelcomeScrn extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== button){
             closed = true;
-            //Name = textField.getText();
-            //System.out.println("Name is: " + Name);
-            System.out.println("Window closing");
-
-
-            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
 }

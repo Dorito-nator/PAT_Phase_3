@@ -4,15 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 
 public class SelectionScrn extends JFrame implements ActionListener {
 
-    JButton button;
-    JTextField textField;
-    JComboBox comboBox;
-    JLabel numSumsText;
+    private final JButton button;
+    private final JTextField textField;
+    private final JComboBox comboBox;
+    private final JLabel numSumsText;
     public static Object choice;
     public static String NumSum;
     public static boolean closed = false;
@@ -46,7 +45,7 @@ public class SelectionScrn extends JFrame implements ActionListener {
 
 
         JLabel label = new JLabel();
-        label.setText("What math operand would you like to use? " + WelcomeScrn.Name);
+        label.setText("What math operand would you like to use " + WelcomeScrn.Name + "?");
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setBounds(0, 10, 500, 50);
         label.setForeground(Color.WHITE);
@@ -99,8 +98,9 @@ public class SelectionScrn extends JFrame implements ActionListener {
     }
 
     public void run(){
-        while(closed == false){
+        while(!closed){
 
+            NumSum = textField.getText();
         }
     }
 
@@ -108,12 +108,8 @@ public class SelectionScrn extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             choice = comboBox.getSelectedItem();
-            NumSum = textField.getText();
-
-            //System.out.println(choice);
-            //System.out.println(NumSum);
-
-            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            closed = true;
+            //this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
     }
 }

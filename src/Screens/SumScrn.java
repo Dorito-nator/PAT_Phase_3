@@ -10,9 +10,13 @@ public class SumScrn extends JFrame implements ActionListener {
 
     JButton button;
     JTextField textField;
+    public static boolean closed = false;
+    public static boolean Correct = true;
+    public static int awnser;
+
     public SumScrn() {
 
-        var choice = (String) SelectionScrn.choice;
+        ///var choice = (String) SelectionScrn.choice;
 
         String sometihng = "";
 
@@ -43,12 +47,16 @@ public class SumScrn extends JFrame implements ActionListener {
 
         Random rnd = new Random();
 
-        var num1 = rnd.nextInt();
-        var num2 = rnd.nextInt();
-        int awnser;
+        var num1 = rnd.nextInt(-100,100);
+        var num2 = rnd.nextInt(-100, 100);
+
         String question = "";
 
-        switch (choice){
+        switch ((String) SelectionScrn.choice){
+            case null:
+                question = "broken?";
+            default:
+                question = "test";
             case "Addition":
                 question = num1 + " + " + num2;
                 awnser = num1+num2;
@@ -61,7 +69,6 @@ public class SumScrn extends JFrame implements ActionListener {
             case "Division":
                 question = num1 + " ÷ " + num2;
                 awnser = num1 / num2;
-
         }
 
         JLabel label = new JLabel();
@@ -83,6 +90,8 @@ public class SumScrn extends JFrame implements ActionListener {
         textField.setBounds(150,100,180,25);
         textField.setSelectedTextColor(Color.CYAN);
 
+
+
         //Panels
         this.add(button);
         this.add(textField);
@@ -97,8 +106,23 @@ public class SumScrn extends JFrame implements ActionListener {
         //frame visibility
         this.setVisible(true);
     }
+    public void run(){
+        while(closed == false){
+//            int Uawnser = Integer.parseInt(textField.getText());
+//
+//            if(Uawnser == awnser){
+//                Correct = true;
+//            }else {
+//                Correct = false;
+//            }
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == button){
+            closed = true;
+
+        }
 
     }
 }

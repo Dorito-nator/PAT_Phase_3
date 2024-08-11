@@ -9,16 +9,26 @@ import java.util.Random;
 public class Main{
 
     public static void main(String[] args) {
+        WelcomeRun();
+        System.out.println("The program makes it past Welcome Screen");
+        SlectRun();
+        System.out.println("The System Makes it past selection screen");
+        int nums = Integer.parseInt(SelectionScrn.NumSum);
+        for (int i = 0; i < nums ; i++) {
+            SumRuns();
+        }
+    }
 
+    public static void WelcomeRun(){
         WelcomeScrn welcome = new WelcomeScrn();
         welcome.run();
-        System.out.println("The program makes it past .run");
-
-        SelectionScrn select = new SelectionScrn();
-        System.out.println("The System Makes it ast the 2nd screen");
-        select.run();
-
-        //SumScrn sums = new SumScrn();
-
     }
+     public static void SlectRun(){
+         SelectionScrn select = new SelectionScrn();
+         select.run();
+     }
+     public static void SumRuns(){
+        SumScrn sums = new SumScrn();
+        sums.run();
+     }
 }
