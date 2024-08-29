@@ -16,9 +16,6 @@ public class SumScrn extends JFrame implements ActionListener {
     public static int awnser;
 
     public SumScrn() {
-
-        ///var choice = (String) SelectionScrn.choice;
-
         String sometihng = "";
 
         this.setResizable(false);
@@ -86,20 +83,21 @@ public class SumScrn extends JFrame implements ActionListener {
 
 
 
-        //Panels
+        //Button
         this.add(button);
+        //textField AKA InputBox
         this.add(textField);
+        //label
         this.add(label);
         this.add(panel1, BorderLayout.NORTH);
         this.add(panel2, BorderLayout.EAST);
         this.add(panel3, BorderLayout.WEST);
         this.add(panel4, BorderLayout.SOUTH);
         this.add(panel5, BorderLayout.CENTER);
-        //button
-
         //frame visibility
         this.setVisible(true);
     }
+
     public void run(){
 
         while(closed == false){
@@ -117,9 +115,6 @@ public class SumScrn extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == button){
             closed = true;
-
-
         }
-
     }
 }
